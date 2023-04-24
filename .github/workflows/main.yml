@@ -33,5 +33,5 @@ jobs:
       with:
         push: true
         envs: GITHUB_SHA
-        tags: risilze/cicd_project:${{ GITHUB_SHA::7 }}
+        tags: risilze/cicd_project:${ GITHUB_SHA::7 }
         
