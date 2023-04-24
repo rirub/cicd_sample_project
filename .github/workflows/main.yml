@@ -32,5 +32,6 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: risilze/cicd_project:${{ env.GITHUB_SHA::7 }}
+        envs: GITHUB_SHA
+        tags: risilze/cicd_project:${{ GITHUB_SHA::7 }}
         
