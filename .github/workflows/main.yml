@@ -27,8 +27,11 @@ jobs:
         username: ${{ env.username }}
         password: ${{ env.password }}
       
-    - name: Docker build
-      run: |
-        docker build -t sample-webapp .
-        docker tag sample-webapp ${{ env.username }}/sample-webapp:${GITHUB_SHA::7}
-        docker push ${{ env.username }}/cicd_project:${GITHUB_SHA::7}
+    - name: Build and push
+      id: docker_build
+      uses: docker/build-push-action@v2
+      env:
+        repository: ${{ cicd_project }}
+      with:
+        push: true
+        tags: ${{ env.username }}/${{repository}}:${{ github.sha }}
