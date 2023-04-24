@@ -34,4 +34,4 @@ jobs:
         repository: ${{ cicd_project }}
       with:
         push: true
-        tags: ${{ env.username }}/${{repository}}:${{ github.sha }}
+        tags: ${{ env.username }}/${{ env.repository }}:${{ github.sha }}
