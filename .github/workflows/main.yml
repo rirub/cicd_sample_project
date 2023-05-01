@@ -54,10 +54,12 @@ jobs:
 
       - name: Checkout kustomize repository
         uses: actions/checkout@v2
+        env: 
+          ACTION_TOKEN: ${{ secrets.ACTION_TOKEN }}
         with:
           repository: rirub/cicd_manifests
           ref: main
-          token: ${{ secrets.ACTION_TOKEN }}
+          token: ${{env.ACTION_TOKEN }}
           path: cicd_manifests
 
       - name: Update Kubernetes resources
