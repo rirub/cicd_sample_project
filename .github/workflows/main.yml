@@ -58,6 +58,7 @@ jobs:
           ACTION_TOKEN: ${{ secrets.ACTION_TOKEN }}
         with:
           repository: rirub/cicd_manifests
+          ref: main
           token: ${{env.ACTION_TOKEN }}
           path: cicd_manifests
 
@@ -66,15 +67,15 @@ jobs:
           cd cicd_manifests/overlays/dev/
           kustomize edit set image risilze/cicd_project:${{ steps.image.outputs.version }}
           cat kustomization.yaml
-          
+
 
       - name: Commit files
         run: |
           cd cicd_manifests
-          git config --global user.email "risilze@github.com"
-          git config --global user.name "rirub"
+          git config --global user.email risilze@github.com
+          git config --global user.name rirub
           git commit -am "Update image tag"
-          git push -u origin dev
+          git push -u origin main
 
 
     
