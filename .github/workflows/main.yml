@@ -58,7 +58,6 @@ jobs:
           ACTION_TOKEN: ${{ secrets.ACTION_TOKEN }}
         with:
           repository: rirub/cicd_manifests
-          ref: main
           token: ${{env.ACTION_TOKEN }}
           path: cicd_manifests
 
